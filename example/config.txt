@@ -1,0 +1,2 @@
+Prefix plugins/PHATE/example
+Plugin PHATE inputfile parameters.txt outputfile output.pdf
