@@ -15,7 +15,7 @@ input <- function(inputfile) {
      pfix <- paste(pfix, "/", sep="")
   }
 
-mydata <- read.csv(paste(pfix, parameters["csvfile", 2], sep="/"))
+mydata <- read.csv(paste(pfix, parameters["csvfile", 2], sep="/"), check.names=FALSE)
 mydata <- as.data.frame(mydata)
 numeric_vars <- readLines(paste(pfix, parameters["features", 2], sep="/"))
 
@@ -45,8 +45,9 @@ run <- function() {}
 
 output <- function(outputfile) {
 x <- as.matrix(mydata_num[, 1:as.integer(parameters["variables", 2])])
+print("A")
 phate_data_num <- phate(scale(x))
-
+print("B")
 phate_data_num <- data.frame(
   PHATE1 = phate_data_num$embedding[, 1],
   PHATE2 = phate_data_num$embedding[, 2],
